@@ -7,12 +7,13 @@
 
 <div class="text-center">
     <h1 class="display-4">Search Results</h1>
-    <p>You have searched for: @Model.books.First().Title</p>
     <p>You have searched for: @Model.SearchTerm</p>
     
     @{
-    
-        <p>@DataBaseQueryer.bookQuery().First().Title</p>
+        foreach (var book in Model.books)
+        {
+            <p>A book exists with this name! It has name: @book.Title</p>
+        }
     }
-    
+
 </div>
