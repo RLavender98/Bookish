@@ -8,14 +8,14 @@ namespace Bookish.DataAccess
 {
     public class DataBaseQueryer
     {
-        public static IEnumerable<dynamic> bookQuery()
+        public static List<Book> bookQuery()
         {
-            using (var connection = new NpgsqlConnection("Host=localhost;Username=postgres;Password=tgC#bl21;Database=bookish"))
+            using (var connection = new NpgsqlConnection("Host=localhost;Username=postgres;Password=password;Database=bookish"))
             {
                 connection.Open();
                 //connection.Execute("Insert into Employee (first_name, last_name, address) values ('John', 'Smith', '123 Duane St');");
-                var value = connection.Query("Select * from books;");
-                return value;
+                var value = connection.Query<Book>("Select * from books;");
+                return value.ToList();
             }
         }
     }

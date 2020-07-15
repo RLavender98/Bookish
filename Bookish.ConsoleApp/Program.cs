@@ -8,8 +8,12 @@ namespace Bookish.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            var value = DataBaseQueryer.bookQuery();
-            Console.WriteLine(value.First());
+            var bookList = DataBaseQueryer.bookQuery();
+
+            foreach (Book book in bookList)
+            {
+                Console.WriteLine($"Book Title: {book.Title} \tISBN: {book.Isbn}");
+            }
         }
     }
 }
