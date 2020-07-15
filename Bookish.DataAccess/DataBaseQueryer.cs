@@ -11,7 +11,7 @@ namespace Bookish.DataAccess
     {
         public static List<Book> bookQuery()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Bookish"].ConnectionString;
+            var connectionString = "Host=localhost;Username=postgres;Password=password;Database=bookish";//ConfigurationManager.ConnectionStrings["Bookish"].ConnectionString;
             using (var connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();

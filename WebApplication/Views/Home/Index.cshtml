@@ -1,8 +1,21 @@
-﻿@{
+﻿@using Bookish.DataAccess
+@model WebApplication.Models.LibraryModel;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Welcome to the library.</p>
+    
+    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+    {
+        <fieldset>
+            <legend>Search For Books:</legend>
+            @Html.TextBoxFor(m => m.SearchTerm)
+            <input type="submit" value="Search"/>
+        </fieldset>
+    }
+
 </div>

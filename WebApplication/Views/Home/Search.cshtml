@@ -1,0 +1,18 @@
+﻿@using Bookish.DataAccess
+@model WebApplication.Models.LibraryModel;
+
+@{
+    ViewData["Title"] = "Search Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Search Results</h1>
+    <p>You have searched for: @Model.books.First().Title</p>
+    <p>You have searched for: @Model.SearchTerm</p>
+    
+    @{
+    
+        <p>@DataBaseQueryer.bookQuery().First().Title</p>
+    }
+    
+</div>

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Bookish.DataAccess;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Logging;
 using WebApplication.Models;
 
@@ -26,6 +28,18 @@ namespace WebApplication.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Search(string SearchTerm)
+        {
+            // Add some properties to the BusInfo view model with the data you want to render on the page.
+            // Write code here to populate the view model with info from the APIs.
+            // Then modify the view (in Views/Home/BusInfo.cshtml) to render upcoming buses.
+            var info = new LibraryModel(SearchTerm);
+            info.books = Bookish.DataAccess.DataBaseQueryer.bookQuery();
+            
+            return View(info);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
