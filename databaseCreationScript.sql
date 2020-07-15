@@ -133,3 +133,12 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.checkouts
     OWNER to bookish;
+	
+	
+	
+	
+	
+	
+	
+	
+	
